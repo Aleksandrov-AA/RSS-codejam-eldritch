@@ -135,8 +135,7 @@ function showCounterCard() {
 }
 
 
-function showDeckStage1() {
-    
+function showDeckStage1() {    
     getRandomI(0, deckStage1.length-1);    
     let currentIndex = randomI;
     let currentC = deckStage1[currentIndex];
@@ -148,18 +147,64 @@ function showDeckStage1() {
         st1br -= 1;  
     } else if (currentC[1] === 'bl') {
         st1bl -= 1;  
-    }    
-    
-    deckStage1.splice(currentIndex, 1);
+    }
 
-    setLastCard(currentC[1], currentC[0])    
-    showCounterCard()    
+    deckStage1.splice(currentIndex, 1);
+    setLastCard(currentC[1], currentC[0]);    
+    showCounterCard();    
 }
 
+function showDeckStage2() {    
+    getRandomI(0, deckStage2.length-1);    
+    let currentIndex = randomI;
+    let currentC = deckStage2[currentIndex];
+    currentC = currentC.split(' ');
+    
+    if (currentC[1] === 'gr') {
+        st2gr -= 1;               
+    } else if (currentC[1] === 'br') {
+        st2br -= 1;  
+    } else if (currentC[1] === 'bl') {
+        st2bl -= 1;  
+    }
+        
+    deckStage2.splice(currentIndex, 1);
+    setLastCard(currentC[1], currentC[0]);   
+    showCounterCard();    
+}
 
+function showDeckStage3() {    
+    getRandomI(0, deckStage3.length-1);    
+    let currentIndex = randomI;
+    let currentC = deckStage3[currentIndex];
+    currentC = currentC.split(' ');
+    
+    if (currentC[1] === 'gr') {
+        st3gr -= 1;               
+    } else if (currentC[1] === 'br') {
+        st3br -= 1;  
+    } else if (currentC[1] === 'bl') {
+        st3bl -= 1;  
+    }
+        
+    deckStage3.splice(currentIndex, 1);
+    setLastCard(currentC[1], currentC[0]);   
+    showCounterCard();    
+}
 
-
-
+function showDeckStage() {
+    if (deckStage1.length !== 0) {
+        showDeckStage1();
+    } else if (deckStage2.length !== 0) {
+        showDeckStage2();
+    } else if (deckStage3.length !== 0) {
+        showDeckStage3();
+    } else {
+        // колода закончена
+        const lastDeck = document.querySelector('.deck');
+        lastDeck.style.backgroundImage = 'none';
+    }
+}
 
 
 function setLastCard(colour, num) { // сюда уже подаются данные после расшифровки массива стейджа, просто вытаскиваем картинку
@@ -183,11 +228,35 @@ function setLastCard(colour, num) { // сюда уже подаются данн
 }
 
 
+function rest() { // неверсно работает перезагрузка данных, ломается логика, решил простым релоудом обойтись
+    // const lastCard = document.querySelector('.last-card');
+    // lastCard.style.backgroundImage = 'none';
+
+    // st1gr = 1;
+    // st1br = 2;
+    // st1bl = 1;
+    // st2gr = 2;
+    // st2br = 3;
+    // st2bl = 1;
+    // st3gr = 2;
+    // st3br = 4;
+    // st3bl = 0;
+    
+    // get3decks();
+    // showCounterCard();
+
+    location.reload();
+}
+
+
 // тестируем
 function start() {
-    showDeckStage1();
+    showDeckStage();
     // setLastCard('gr', 1);
 }
 
 const deck = document.querySelector('.deck');
 deck.addEventListener('click', start);
+
+const again = document.querySelector('.again');
+again.addEventListener('click', rest);
