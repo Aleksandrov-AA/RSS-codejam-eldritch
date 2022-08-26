@@ -7,12 +7,12 @@ function getRandomNum(min, max) {
 }
 
 let deckGreen = [];
-let deckBrow = [];
+let deckBrown = [];
 let deckBlue = [];
 
-function get3decks(green, brow, blue) { // тут статичные данные для 1 древнего
+function get3decks(green, brown, blue) { // тут статичные данные для 1 древнего
     green = 5;
-    brow = 9;
+    brown = 9;
     blue = 2;    
 
     for (let gr = 1; gr <= green; gr++) {
@@ -25,13 +25,13 @@ function get3decks(green, brow, blue) { // тут статичные данны�
         }
     }
 
-    for (let br = 1; br <= brow; br++) {
+    for (let br = 1; br <= brown; br++) {
         getRandomNum(1, 21);
-        if (deckBrow.includes(randomNum) === true) {
+        if (deckBrown.includes(randomNum) === true) {
             br -= 1;
             continue;
         } else {
-            deckBrow.push(randomNum);
+            deckBrown.push(randomNum);
         }
     }
 
@@ -45,6 +45,7 @@ function get3decks(green, brow, blue) { // тут статичные данны�
         }
     }
 }
+get3decks();
 
 let randomI;
 function getRandomI(min, max) {
@@ -56,7 +57,7 @@ let deckStage2 = [];
 let deckStage3 = [];
 
 
-function getDeckStage(green, brow, blue) { // решил добавлять к номеру gr, br, bl чтоб понять какого цвета карта, потом через метод split буду проверять к какому цвету относится, сложная логика, но пока так
+function getDeckStage(green, brown, blue) { // решил добавлять к номеру gr, br, bl чтоб понять какого цвета карта, потом через метод split буду проверять к какому цвету относится, сложная логика, но пока так
   let currentCardIndex;
   let currentCard;
   let deckStage = [];
@@ -69,12 +70,12 @@ function getDeckStage(green, brow, blue) { // решил добавлять к �
     deckGreen.splice(currentCardIndex, 1);    
   }
   
-  for (let br = 1; br <= brow; br++) {
-    getRandomI(0, deckBrow.length-1);    
+  for (let br = 1; br <= brown; br++) {
+    getRandomI(0, deckBrown.length-1);    
     currentCardIndex = randomI;
-    currentCard = deckBrow[currentCardIndex] + ' br';
+    currentCard = deckBrown[currentCardIndex] + ' br';
     deckStage.push(currentCard);
-    deckBrow.splice(currentCardIndex, 1);    
+    deckBrown.splice(currentCardIndex, 1);    
   }
 
   for (let bl = 1; bl <= blue; bl++) {
@@ -99,26 +100,81 @@ deckStage3 = getDeckStage(2,4,0);
 
 
 
+// функция корректного счетчика
+let st1gr = 1;
+let st1br = 2;
+let st1bl = 1;
+let st2gr = 2;
+let st2br = 3;
+let st2bl = 1;
+let st3gr = 2;
+let st3br = 4;
+let st3bl = 0;
+
+function showCounterCard() {
+    const st1grNum = document.querySelector('.st1gr');
+    st1grNum.textContent = st1gr;
+    const st1brNum = document.querySelector('.st1br');
+    st1brNum.textContent = st1br;
+    const st1blNum = document.querySelector('.st1bl');
+    st1blNum.textContent = st1bl;
+
+    const st2grNum = document.querySelector('.st2gr');
+    st2grNum.textContent = st2gr;
+    const st2brNum = document.querySelector('.st2br');
+    st2brNum.textContent = st2br;
+    const st2blNum = document.querySelector('.st2bl');
+    st2blNum.textContent = st2bl;
+
+    const st3grNum = document.querySelector('.st3gr');
+    st3grNum.textContent = st3gr;
+    const st3brNum = document.querySelector('.st3br');
+    st3brNum.textContent = st3br;
+    const st3blNum = document.querySelector('.st3bl');
+    st3blNum.textContent = st3bl;
+}
+
+
+function showDeckStage1() {
+    
+    getRandomI(0, deckStage1.length-1);    
+    let currentIndex = randomI;
+    let currentC = deckStage1[currentIndex];
+    currentC = currentC.split(' ');
+    
+    if (currentC[1] === 'gr') {
+        st1gr -= 1;               
+    } else if (currentC[1] === 'br') {
+        st1br -= 1;  
+    } else if (currentC[1] === 'bl') {
+        st1bl -= 1;  
+    }    
+    
+    deckStage1.splice(currentIndex, 1);
+
+    setLastCard(currentC[1], currentC[0])    
+    showCounterCard()    
+}
 
 
 
 
 
-function setCard(colour, num) { // сюда уже подаются данные после расшифровки массива стейджа, просто вытаскиваем картинку
+
+
+function setLastCard(colour, num) { // сюда уже подаются данные после расшифровки массива стейджа, просто вытаскиваем картинку
     let currentColor;
     if (colour === 'gr') {
         currentColor = 'green';
     } else if (colour === 'br') {
-        currentColor = 'brow';
+        currentColor = 'brown';
     } else if (colour === 'bl') {
         currentColor = 'blue';
     }
 
     let cardNum = String(num);
     const lastCard = document.querySelector('.last-card');
-
     // lastCard.style.backgroundImage = `url('./assets/MythicCards/${currentColor}/${currentColor}${cardNum}.png')`;
-
     const img = new Image();
     img.src = `./assets/MythicCards/${currentColor}/${currentColor}${cardNum}.png`;
     img.onload = () => {
@@ -129,7 +185,8 @@ function setCard(colour, num) { // сюда уже подаются данные
 
 // тестируем
 function start() {
-    setCard('gr', 1);
+    showDeckStage1();
+    // setLastCard('gr', 1);
 }
 
 const deck = document.querySelector('.deck');

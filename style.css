@@ -79,7 +79,10 @@ main {
     flex-direction: column;
     gap: 20px;
     justify-content: center;
-    min-width: 40%;
+    min-width: 30%;
+
+    /* top: 10px;
+    right: 10px; */
 }
 
 .current-state {
