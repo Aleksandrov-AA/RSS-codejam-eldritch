@@ -1,7 +1,8 @@
-# Eldritch Horror Codejam
-
 # Выполнение Задания  RSS Stage0 08.2022
 ниже описание задания с репозитория https://github.com/Luffi2539/eldritch-codejam
+
+
+# Eldritch Horror Codejam
 
 ## Описание проекта
 В рамках данного CodeJam необходимо будет создать небольшое приложение-хелпер для настольной игры "Древний Ужас"
