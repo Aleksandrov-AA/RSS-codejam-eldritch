@@ -45,7 +45,7 @@ function get3decks(green, brown, blue) { // тут статичные данны
         }
     }
 }
-get3decks();
+get3decks(); // надо убрать, и завязать на кнопку старт, но почему то не работает пока что
 
 let randomI;
 function getRandomI(min, max) {
@@ -248,15 +248,28 @@ function rest() { // неверсно работает перезагрузка 
     location.reload();
 }
 
+function getStart() {
+    deckGreen = [];
+    deckBrown = [];
+    deckBlue = [];
+    get3decks();
+
+    console.log(deckGreen);
+    console.log(deckBrown);
+    console.log(deckBlue);   
+}
+const startButton = document.querySelector('.start');
+startButton.addEventListener('click', getStart);
+
 
 // тестируем
-function start() {
+function start1() {
     showDeckStage();
     // setLastCard('gr', 1);
 }
 
 const deck = document.querySelector('.deck');
-deck.addEventListener('click', start);
+deck.addEventListener('click', start1);
 
 const again = document.querySelector('.again');
 again.addEventListener('click', rest);
