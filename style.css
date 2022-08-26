@@ -1,0 +1,208 @@
+body {
+    display: block;    
+}
+
+main {
+    margin: 0;
+    padding: 0;
+}
+
+.back {    
+    background-image: url(./assets/home.png);
+
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    gap: 20px;
+    height: 100vh;
+    justify-content: space-between;
+    /* width: 100vw; */
+}
+
+.ancients-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-width: 40%;
+    padding: 20px;
+
+    top: 10px;
+    left: 10px;
+}
+
+.ancient-card{
+    background-size: cover;
+    height: 190px;
+    width: 130px;
+
+    cursor: pointer;
+
+    display: block;
+}
+
+
+
+
+
+.difficulty-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100vh;
+    justify-content: center;
+}
+
+.difficulty {
+    border: 2px solid purple;
+    box-sizing: border-box;
+    color: purple;
+    cursor: pointer;
+    padding: 5px;
+    text-align: center;
+}
+
+.difficulty.active {
+    background-color: red;
+}
+
+.deck-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    min-width: 30%;
+}
+
+.current-state {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 30%;
+}
+
+.stage-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.stage-text {
+    color: purple;
+}
+
+.dots-container {
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.dot {
+    align-items: center;
+    border-radius: 50%;
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    width: 30px;
+}
+
+.green {
+    background-color: green;
+}
+
+.brown {
+    background-color: brown;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.deck{
+    background-size: cover;
+    height: 190px;
+    width: 130px;
+
+    cursor: pointer;
+
+    display: block;
+}
+
+.last-card {
+    background-size: cover;
+    height: 190px;
+    width: 130px;
+
+    display: block;
+}
+
+
+
+
+
+
+
+.footer-text {
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    color: #FFFFFF;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin: auto;
+    /* margin-top: 13.35px;     */
+}
+
+/* .foot-text {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-grow: 5;
+} */
+
+.footer-links {
+    list-style: none;    
+    display: flex;
+    flex-direction: row;
+    
+    gap: 20px;
+    margin-left: auto;    
+}
+
+.icon {
+    width: 33.65px;
+    height: 33.65px;
+
+    text-align: center;
+    transition: 1s;
+
+    /* margin: 0 10px; */
+}
+
+.icon:hover {
+    background: #000000;
+    border-radius: 10px;
+    cursor: pointer;
+    transform: scale(1.8);
+}
+
+.footer-block {  
+    padding: 0;
+    margin: 0;
+    
+    display: flex; 
+    flex-direction: row;
+    
+    border: 1px solid rgb(27, 16, 229);
+
+    background-color: rgba(0, 0, 0, 0.5);
+}
