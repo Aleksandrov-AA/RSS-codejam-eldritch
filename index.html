@@ -4,19 +4,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link href="assets/favicon.ico" rel="shortcut icon" /> ДОПИШИ -->
+    <!-- <link href="assets/favicon.ico" rel="shortcut icon" /> дописать -->
     <link rel="stylesheet" href="style.css" />
     <title>Eldritch Horror Codejam</title>
 </head>
 <body>
-    <header>
+    <div class="back">
+        <header>
 
-    </header>
+        </header>
 
-    <main>
+        <main>
+            <div class="ancients-container">
+                <div class="ancient-card active" style='background-image: url("./assets/Ancients/Azathoth.png");'></div>
 
-    </main>    
+            </div>
+            <div class="difficulty-container">
+                <div class="difficulty ">Низкая</div>
+                <div class="difficulty active">Средняя</div>
+                <div class="difficulty ">Высокая</div>            
+            </div>
+            <div class="deck-container">
+                <div class="current-state">
+                    <div class="stage-container">
+                        <span class="stage-text ">Первая стадия</span>
+                        <div class="dots-container">
+                            <div class="dot green">1</div>
+                            <div class="dot brown">2</div>
+                            <div class="dot blue">1</div>
+                        </div>
+                    </div>
+                    <div class="stage-container">
+                        <span class="stage-text ">Вторая стадия</span>
+                        <div class="dots-container">
+                            <div class="dot green">2</div>
+                            <div class="dot brown">3</div>
+                            <div class="dot blue">1</div>
+                        </div>
+                    </div>
+                    <div class="stage-container">
+                        <span class="stage-text ">Третья стадия</span>
+                        <div class="dots-container">
+                            <div class="dot green">2</div>
+                            <div class="dot brown">4</div>
+                            <div class="dot blue">0</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="deck" style='background-image: url("./assets/mythicCardBackground.png");'></div>
+                <div class="last-card"></div>            
+            </div>
 
+        </main>    
+    </div>
 
     <footer class="footer-block">                    
         <div class="footer-text">
@@ -42,6 +82,7 @@
             </div>
         </div>
     </footer>
+    
     <script src="script.js"></script>
 </body>
 </html>
