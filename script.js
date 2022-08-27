@@ -219,12 +219,12 @@ function setLastCard(colour, num) { // сюда уже подаются данн
 
     let cardNum = String(num);
     const lastCard = document.querySelector('.last-card');
-    // lastCard.style.backgroundImage = `url('./assets/MythicCards/${currentColor}/${currentColor}${cardNum}.png')`;
-    const img = new Image();
-    img.src = `./assets/MythicCards/${currentColor}/${currentColor}${cardNum}.png`;
-    img.onload = () => {
-        lastCard.style.backgroundImage = `url('./assets/MythicCards/${currentColor}/${currentColor}${cardNum}.png')`;
-    };    
+    lastCard.style.backgroundImage = `url('./assets/MythicCards/${currentColor}/${currentColor}${cardNum}.png')`;
+    // const img = new Image();
+    // img.src = `./assets/MythicCards/${currentColor}/${currentColor}${cardNum}.png`;
+    // img.onload = () => {
+    //     lastCard.style.backgroundImage = `url('./assets/MythicCards/${currentColor}/${currentColor}${cardNum}.png')`;
+    // };    
 }
 
 
