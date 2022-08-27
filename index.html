@@ -12,12 +12,16 @@
     <div class="back"> 
         <main>
             <div class="ancients-container">
-                <div class="ancient-card active" style='background-image: url("./assets/Ancients/Azathoth.png");'></div>
+                <div class="ancient-card azathoth" style='background-image: url("./assets/Ancients/Azathoth.png");'></div>
+                <div class="ancient-card cthulthu" style='background-image: url("./assets/Ancients/Cthulthu.png");'></div>
+                <div class="ancient-card iogSothoth" style='background-image: url("./assets/Ancients/IogSothoth.png");'></div>
+                <div class="ancient-card shubNiggurath" style='background-image: url("./assets/Ancients/ShubNiggurath.png");'></div>
 
             </div>
             <div class="difficulty-container">
-                <div class="difficulty ">Пока работает Минимальный набор: 1 древний(5), средняя сложность(5), колода(40), счетчик(20). Итого 70 из 100. Просьба не оценивать верстку, она мне пока дается сложнее чем логика JS</div>
-                <div class="difficulty active">Средняя</div>
+                <div class="difficulty ">Выбор Карты Древнего запускает замещивание колоды. Т.е. если в процессе открытия карт колоды снова кликнуть по карте Древнего, то колода замещается снова (Рандомно)</div>
+                <div class="difficulty ">Пока работает: 4 древних(20), средняя сложность(5), колода(40), счетчик(20). Итого 85 из 100. Просьба не оценивать верстку, она мне пока дается сложнее чем логика JS</div>
+                <div class="difficulty active start">Сложность "Средняя"</div>
                 <div class="difficulty again">Перезапустить заново</div>            
             </div>
             <div class="deck-container">
@@ -25,24 +29,24 @@
                     <div class="stage-container">
                         <span class="stage-text ">Первая стадия</span>
                         <div class="dots-container">
-                            <div class="dot green st1gr">1</div>
-                            <div class="dot brown st1br">2</div>
-                            <div class="dot blue st1bl">1</div>
+                            <div class="dot green st1gr">0</div>
+                            <div class="dot brown st1br">0</div>
+                            <div class="dot blue st1bl">0</div>
                         </div>
                     </div>
                     <div class="stage-container">
                         <span class="stage-text ">Вторая стадия</span>
                         <div class="dots-container">
-                            <div class="dot green st2gr">2</div>
-                            <div class="dot brown st2br">3</div>
-                            <div class="dot blue st2bl">1</div>
+                            <div class="dot green st2gr">0</div>
+                            <div class="dot brown st2br">0</div>
+                            <div class="dot blue st2bl">0</div>
                         </div>
                     </div>
                     <div class="stage-container">
                         <span class="stage-text ">Третья стадия</span>
                         <div class="dots-container">
-                            <div class="dot green st3gr">2</div>
-                            <div class="dot brown st3br">4</div>
+                            <div class="dot green st3gr">0</div>
+                            <div class="dot brown st3br">0</div>
                             <div class="dot blue st3bl">0</div>
                         </div>
                     </div>

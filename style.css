@@ -38,12 +38,16 @@ main {
 
 .ancient-card{
     background-size: cover;
-    height: 190px;
-    width: 130px;
+    height: 260px;
+    width: 200px;
 
     cursor: pointer;
 
     display: block;
+}
+
+.ancient-card.active {
+    border: 3px solid red;
 }
 
 
@@ -63,7 +67,8 @@ main {
 .difficulty {
     border: 2px solid purple;
     box-sizing: border-box;
-    color: purple;
+    /* color: purple; */
+    color: #FFFFFF;
     cursor: pointer;
     padding: 5px;
     text-align: center;

@@ -1,4 +1,4 @@
-// Version 1 - обычная сложность, один древний Азатот
+// Version 1 - обычная сложность, один древний Azathoth
 
 let randomNum;
 
@@ -10,10 +10,10 @@ let deckGreen = [];
 let deckBrown = [];
 let deckBlue = [];
 
-function get3decks(green, brown, blue) { // тут статичные данные для 1 древнего
-    green = 5;
-    brown = 9;
-    blue = 2;    
+function get3decks(green, brown, blue) { 
+    // green = 5; // тут статичные данные для 1 древнего
+    // brown = 9;
+    // blue = 2;    
 
     for (let gr = 1; gr <= green; gr++) {
         getRandomNum(1, 18);
@@ -45,7 +45,7 @@ function get3decks(green, brown, blue) { // тут статичные данны
         }
     }
 }
-get3decks();
+get3decks(); // надо убрать, и завязать на кнопку старт, но почему то не работает пока что
 
 let randomI;
 function getRandomI(min, max) {
@@ -88,28 +88,28 @@ function getDeckStage(green, brown, blue) { // решил добавлять к 
   return deckStage;
 }
 
-deckStage1 = getDeckStage(1,2,1); // передаю статичные значения сколько карту какого цвета нужно для каждой стадии
+// deckStage1 = getDeckStage(1,2,1); // передаю статичные значения сколько карту какого цвета нужно для каждой стадии
 // console.log(deckStage1);
 
-deckStage2 = getDeckStage(2,3,1);
+// deckStage2 = getDeckStage(2,3,1);
 // console.log(deckStage2);
 
-deckStage3 = getDeckStage(2,4,0);
+// deckStage3 = getDeckStage(2,4,0);
 // console.log(deckStage3);
 
 
 
 
 // функция корректного счетчика
-let st1gr = 1;
-let st1br = 2;
-let st1bl = 1;
-let st2gr = 2;
-let st2br = 3;
-let st2bl = 1;
-let st3gr = 2;
-let st3br = 4;
-let st3bl = 0;
+let st1gr // = 1; // убираю эти значения по умолчанию, т.к. ввожу дополнительных древних
+let st1br // = 2;
+let st1bl // = 1;
+let st2gr // = 2;
+let st2br // = 3;
+let st2bl // = 1;
+let st3gr // = 2;
+let st3br // = 4;
+let st3bl // = 0;
 
 function showCounterCard() {
     const st1grNum = document.querySelector('.st1gr');
@@ -202,7 +202,7 @@ function showDeckStage() {
     } else {
         // колода закончена
         const lastDeck = document.querySelector('.deck');
-        lastDeck.style.backgroundImage = 'none';
+        lastDeck.style.backgroundImage = 'url("./assets/lastDeck.jpg")';
     }
 }
 
@@ -248,15 +248,163 @@ function rest() { // неверсно работает перезагрузка 
     location.reload();
 }
 
+function getStart() {
+    deckGreen = [];
+    deckBrown = [];
+    deckBlue = [];
+    get3decks();
+
+    console.log(deckGreen);
+    console.log(deckBrown);
+    console.log(deckBlue);   
+}
+const startButton = document.querySelector('.start');
+startButton.addEventListener('click', getStart);
+
 
 // тестируем
-function start() {
+function start1() {
     showDeckStage();
     // setLastCard('gr', 1);
 }
 
 const deck = document.querySelector('.deck');
-deck.addEventListener('click', start);
+deck.addEventListener('click', start1);
 
 const again = document.querySelector('.again');
 again.addEventListener('click', rest);
+
+
+
+// Version 2 Добавляю выбор древнего, чтоб поднять баллы до 85 из 100
+
+const azathoth = document.querySelector('.azathoth');
+const cthulthu = document.querySelector('.cthulthu');
+const iogSothoth = document.querySelector('.iogSothoth');
+const shubNiggurath = document.querySelector('.shubNiggurath');
+
+function getAzathothCard() {
+    azathoth.classList.remove('active');
+    cthulthu.classList.remove('active');
+    iogSothoth.classList.remove('active');
+    shubNiggurath.classList.remove('active');
+
+    azathoth.classList.add('active');
+
+    st1gr = 1;
+    st1br = 2;
+    st1bl = 1;
+    st2gr = 2;
+    st2br = 3;
+    st2bl = 1;
+    st3gr = 2;
+    st3br = 4;
+    st3bl = 0;
+
+    showCounterCard();
+    get3decks(5, 9, 2);
+    deckStage1 = getDeckStage(1,2,1);    
+    deckStage2 = getDeckStage(2,3,1);
+    deckStage3 = getDeckStage(2,4,0);
+    
+    const lastCard = document.querySelector('.last-card');
+    lastCard.style.backgroundImage = 'none';
+    const lastDeck = document.querySelector('.deck');
+    lastDeck.style.backgroundImage = 'url("./assets/mythicCardBackground.png")';
+}
+
+function getCthulthuCard() {
+    azathoth.classList.remove('active');
+    cthulthu.classList.remove('active');
+    iogSothoth.classList.remove('active');
+    shubNiggurath.classList.remove('active');
+
+    cthulthu.classList.add('active');
+
+    st1gr = 0;
+    st1br = 2;
+    st1bl = 2;
+    st2gr = 1;
+    st2br = 3;
+    st2bl = 0;
+    st3gr = 3;
+    st3br = 4;
+    st3bl = 0;
+
+    showCounterCard();
+    get3decks(4, 9, 2);
+    deckStage1 = getDeckStage(0,2,2);    
+    deckStage2 = getDeckStage(1,3,0);
+    deckStage3 = getDeckStage(3,4,0);
+    
+    const lastCard = document.querySelector('.last-card');
+    lastCard.style.backgroundImage = 'none';
+    const lastDeck = document.querySelector('.deck');
+    lastDeck.style.backgroundImage = 'url("./assets/mythicCardBackground.png")';
+}
+
+function getIogSothothCard() {
+    azathoth.classList.remove('active');
+    cthulthu.classList.remove('active');
+    iogSothoth.classList.remove('active');
+    shubNiggurath.classList.remove('active');
+
+    iogSothoth.classList.add('active');
+
+    st1gr = 0;
+    st1br = 2;
+    st1bl = 1;
+    st2gr = 2;
+    st2br = 3;
+    st2bl = 1;
+    st3gr = 3;
+    st3br = 4;
+    st3bl = 0;
+
+    showCounterCard();
+    get3decks(5, 9, 2);
+    deckStage1 = getDeckStage(0,2,1);    
+    deckStage2 = getDeckStage(2,3,1);
+    deckStage3 = getDeckStage(3,4,0);
+    
+    const lastCard = document.querySelector('.last-card');
+    lastCard.style.backgroundImage = 'none';
+    const lastDeck = document.querySelector('.deck');
+    lastDeck.style.backgroundImage = 'url("./assets/mythicCardBackground.png")';
+}
+
+function getShubNiggurathCard() {
+    azathoth.classList.remove('active');
+    cthulthu.classList.remove('active');
+    iogSothoth.classList.remove('active');
+    shubNiggurath.classList.remove('active');
+
+    shubNiggurath.classList.add('active');
+
+    st1gr = 1;
+    st1br = 2;
+    st1bl = 1;
+    st2gr = 3;
+    st2br = 2;
+    st2bl = 1;
+    st3gr = 2;
+    st3br = 4;
+    st3bl = 0;
+
+    showCounterCard();
+    get3decks(6, 8, 2);
+    deckStage1 = getDeckStage(1,2,1);    
+    deckStage2 = getDeckStage(3,2,1);
+    deckStage3 = getDeckStage(2,4,0);
+    
+    const lastCard = document.querySelector('.last-card');
+    lastCard.style.backgroundImage = 'none';
+    const lastDeck = document.querySelector('.deck');
+    lastDeck.style.backgroundImage = 'url("./assets/mythicCardBackground.png")';
+}
+
+
+azathoth.addEventListener('click', getAzathothCard);
+cthulthu.addEventListener('click', getCthulthuCard);
+iogSothoth.addEventListener('click', getIogSothothCard);
+shubNiggurath.addEventListener('click', getShubNiggurathCard);
